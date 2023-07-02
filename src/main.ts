@@ -1,15 +1,6 @@
-import express from 'express'
+import { env } from './env'
+import { server } from './server'
 
-const PORT = parseInt(process.env.PORT || '') || 3000
-
-const app = express()
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+server.listen(env.PORT, () => {
+  console.log('Server listening on port %s', env.PORT)
 })
-
-app.listen(PORT, () => {
-  console.log('Server listening on port %s', PORT)
-})
-
-
